@@ -2,8 +2,8 @@ clear;
 clc; 
 close all;
 %  list audios
-audios = {'Zero_train1.wav','Zero_train2.wav','Zero_train3.wav','Zero_train4.wav','Zero_train6.wav','Zero_train7.wav','Zero_train8.wav','Zero_train9.wav','Zero_train10.wav','Zero_train11.wav','Zero_train12.wav','Zero_train13.wav','Zero_train14.wav','Zero_train15.wav','Zero_train16.wav','Zero_train17.wav','Zero_train18.wav','Zero_train19.wav'};
-
+audios = {'s1.wav','s2.wav','s3.wav','s4.wav','s5.wav','s6.wav','s7.wav','s8.wav','s9.wav','s10.wav','s11.wav'};
+cell_s = cell(length(audios), 1);
 % parameters for stft
 N = 516; %frame and fft length
 M = 200; %overlap
@@ -107,6 +107,7 @@ for A = 1:length(audios)
          end
          l = l+1;
      end
+     cell_s{A} = s;
      figure;
      scatter(s(:,1),s(:,2),'kx');
      title(['centroids' audios{A}]);
