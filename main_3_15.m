@@ -2,7 +2,7 @@ clear;
 clc; 
 close all;
 %  list audio train files
-audios = {'s1.wav','s2.wav','s3.wav','t4.wav','t5.wav','t6.wav'};
+audios = {'Zero_train1.wav','Zero_train2.wav','Zero_train3.wav','Zero_train4.wav','Zero_train6.wav','Zero_train8.wav','Zero_train9.wav','Zero_train10.wav','Zero_train11.wav','Zero_train12.wav','Zero_train13.wav','Zero_train15.wav','Zero_train16.wav','Zero_train17.wav','Zero_train18.wav','Zero_train19.wav'};
 
 % parameters for stft
 N = 516; %frame and fft length
@@ -124,8 +124,7 @@ end
 %% Testing
 % We are done with training, we will now do testing
 % list audio test files
-audio_test = {'s1.wav','s2.wav','s3.wav','s4.wav','s5.wav','s6.wav'};
-mfccs_t = cell(length(audio_test),1);
+audio_test = {'Zero_test1.wav','Zero_test2.wav','Zero_test3.wav','Zero_test4.wav','Zero_test6.wav','Zero_test8.wav','Zero_test9.wav','Zero_test10.wav','Zero_test11.wav','Zero_test12.wav','Zero_test13.wav','Zero_test15.wav','Zero_test16.wav','Zero_test17.wav','Zero_test18.wav','Zero_test19.wav'};
 
 % parameters for testing stft
 N_t = 516; %frame and fft length
@@ -138,7 +137,7 @@ for B = 1:length(audio_test)
 
     % apply melfb
     K_t = 20;
-    m_t = melfb(K_t, N_t, M_t);
+    m_t = melfb(K_t, N_t, fs_t);
         
     % calculate the spectrum(before)
     Spectrum_t = abs(s_t);
@@ -246,7 +245,6 @@ for B = 1:length(audio_test)
      hold off
 end
     
-
 total_min_distances = zeros(length(audio_test), length(audios));
 
 for B = 1:length(audio_test)
